@@ -36,7 +36,7 @@ export default function ModelCatalog() {
             The <span className="gradient-text">Model Armory</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            2,084 specialist models. Each one trained on domain-specific data. Each one benchmarked against 
+            3,100+ specialist models. Each one trained on domain-specific data. Each one benchmarked against 
             generic alternatives.{' '}
             <span className="text-white font-semibold">Choose your weapon.</span>
           </p>
@@ -212,15 +212,19 @@ export default function ModelCatalog() {
               </AnimatePresence>
 
               {/* Actions */}
-              <div className="flex space-x-2 mt-3">
-                <button className="flex-1 px-3 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-xs font-semibold transition-colors flex items-center justify-center space-x-1.5">
-                  <HiDownload size={14} />
-                  <span>HuggingFace</span>
-                </button>
-                <button className="px-3 py-2 border border-gray-700 hover:bg-gray-800 rounded-lg text-xs font-medium transition-colors flex items-center space-x-1.5">
-                  <HiDatabase size={14} />
-                  <span>API</span>
-                </button>
+              <div className="space-y-2 mt-3">
+                <div className="flex space-x-2">
+                  <a href="#api" className="flex-1 px-3 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg text-xs font-bold transition-all flex items-center justify-center space-x-1.5 shadow-lg shadow-blue-500/20">
+                    <HiDatabase size={14} />
+                    <span>Use via API</span>
+                    <span className="ml-1 px-1.5 py-0.5 bg-white/20 rounded text-[10px]">Easy</span>
+                  </a>
+                  <a href={`https://huggingface.co/WindyTranslate/${model.id}`} target="_blank" rel="noopener noreferrer" className="px-3 py-2.5 border border-gray-700 hover:bg-gray-800 rounded-lg text-xs font-medium transition-colors flex items-center space-x-1.5">
+                    <HiDownload size={14} />
+                    <span>HuggingFace</span>
+                  </a>
+                </div>
+                <p className="text-[10px] text-gray-600 text-center">One API call, or download &amp; self-host. Your choice.</p>
               </div>
             </motion.div>
           ))}
@@ -241,12 +245,19 @@ export default function ModelCatalog() {
           className="mt-12 text-center"
         >
           <p className="text-gray-500 mb-4">
-            Showing {filteredModels.length} of 2,084 total models.{' '}
+            Showing {filteredModels.length} of 3,100+ specialist models.{' '}
             <span className="text-gray-400">Full catalog available via API.</span>
           </p>
-          <a href="#api" className="btn-primary inline-block">
-            Browse Full Catalog via API
-          </a>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
+            <a href="#api" className="btn-primary inline-flex items-center space-x-2">
+              <HiDatabase size={18} />
+              <span>Get API Access — One Endpoint, All Models</span>
+            </a>
+            <a href="https://huggingface.co/WindyTranslate" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 px-6 py-3 border border-gray-700 hover:bg-gray-800 rounded-xl font-semibold transition-colors">
+              <HiDownload size={18} />
+              <span>Browse on HuggingFace</span>
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
