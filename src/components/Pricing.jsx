@@ -1,6 +1,49 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { HiCheck, HiSparkles, HiBriefcase, HiOfficeBuilding, HiArrowRight } from 'react-icons/hi';
+
+function CompetitorAnchoring() {
+  const competitors = [
+    { name: 'Google Cloud Translation', price: '$20/M chars', models: '1 generic model', quality: 'Good for chat. Bad for medical, legal, technical.', color: 'text-gray-400' },
+    { name: 'DeepL API', price: '$25/M chars', models: '1 model, ~30 languages', quality: 'Great quality, limited languages. No specialist models.', color: 'text-gray-400' },
+    { name: 'Amazon Translate', price: '$15/M chars', models: '1 generic model', quality: 'Cheap but generic. No domain specialization.', color: 'text-gray-400' },
+    { name: 'WindyTranslate', price: 'From $0', models: '3,100+ specialist models', quality: 'Pair-trained specialists. Medical ES↔EN ≠ Legal ES↔EN. We have both.', color: 'text-blue-400' },
+  ];
+
+  return (
+    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+      className="mb-16 max-w-4xl mx-auto"
+    >
+      <h3 className="text-2xl font-bold text-center mb-2">The API Landscape (Honest Version)</h3>
+      <p className="text-gray-500 text-center text-sm mb-8">Everyone charges per character. We give you more for less.</p>
+      <div className="overflow-hidden rounded-xl border border-gray-800/60">
+        {competitors.map((c, i) => (
+          <div key={i} className={`flex items-center justify-between px-5 py-4 ${
+            c.name === 'WindyTranslate' 
+              ? 'bg-blue-500/10 border-t-2 border-blue-500/30' 
+              : i % 2 === 0 ? 'bg-gray-900/40' : 'bg-gray-900/20'
+          }`}>
+            <div className="flex-1">
+              <div className={`font-bold text-sm ${c.name === 'WindyTranslate' ? 'text-blue-400' : 'text-white'}`}>
+                {c.name === 'WindyTranslate' ? '🌪️ ' : ''}{c.name}
+              </div>
+              <div className="text-xs text-gray-500 mt-0.5">{c.quality}</div>
+            </div>
+            <div className="text-right flex-shrink-0 ml-4">
+              <div className={`text-sm font-bold ${c.name === 'WindyTranslate' ? 'text-green-400' : 'text-gray-400'}`}>{c.price}</div>
+              <div className="text-xs text-gray-600">{c.models}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p className="text-center mt-4 text-xs text-gray-500">
+        Other APIs: 1 generic model tries to translate everything. WindyTranslate: <span className="text-blue-400 font-bold">3,100+ specialists</span>, each trained on specific language pairs and domains.
+        <br />
+        <span className="text-gray-600">It's the difference between a GP and a brain surgeon.</span>
+      </p>
+    </motion.div>
+  );
+}
 
 function PricingCalculator() {
   const [chars, setChars] = useState(5);
@@ -13,10 +56,13 @@ function PricingCalculator() {
 
   const millions = chars;
   let recommended;
-  if (millions <= 0.03) recommended = tiers[0];
-  else if (millions <= 10) recommended = tiers[1];
-  else if (millions <= 100) recommended = tiers[2];
-  else recommended = tiers[3];
+  let googleCost;
+  if (millions <= 0.03) { recommended = tiers[0]; googleCost = 0; }
+  else if (millions <= 10) { recommended = tiers[1]; googleCost = millions * 20; }
+  else if (millions <= 100) { recommended = tiers[2]; googleCost = millions * 20; }
+  else { recommended = tiers[3]; googleCost = millions * 20; }
+
+  const savings = googleCost - (recommended.price === '$0/mo' ? 0 : parseFloat(recommended.price.replace(/[^0-9.]/g, '')));
 
   return (
     <motion.div
@@ -25,8 +71,8 @@ function PricingCalculator() {
       viewport={{ once: true }}
       className="mt-16 max-w-2xl mx-auto bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-8"
     >
-      <h3 className="text-2xl font-bold text-center mb-2">Not Sure Which Plan?</h3>
-      <p className="text-gray-400 text-center text-sm mb-6">Drag the slider. We'll tell you.</p>
+      <h3 className="text-2xl font-bold text-center mb-2">How Much Will You Save?</h3>
+      <p className="text-gray-400 text-center text-sm mb-6">Drag the slider. See what Google would charge you — then see our price.</p>
 
       <div className="mb-6">
         <div className="flex items-center justify-between mb-2">
@@ -53,10 +99,29 @@ function PricingCalculator() {
         </div>
       </div>
 
-      <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5 text-center">
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 text-center">
+          <p className="text-xs text-gray-500 mb-1">Google Cloud Translation</p>
+          <p className="text-2xl font-bold text-red-400/80 line-through">${googleCost.toFixed(0)}/mo</p>
+          <p className="text-[10px] text-gray-600">1 generic model</p>
+        </div>
+        <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
+          <p className="text-xs text-gray-500 mb-1">WindyTranslate</p>
+          <p className="text-2xl font-extrabold gradient-text">{recommended.price}</p>
+          <p className="text-[10px] text-blue-400">3,100+ specialist models</p>
+        </div>
+      </div>
+
+      {savings > 0 && (
+        <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-3 text-center">
+          <span className="text-green-400 font-bold text-lg">You save ${savings.toFixed(0)}/mo</span>
+          <span className="text-green-400/60 text-sm ml-2">with better quality</span>
+        </div>
+      )}
+
+      <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 text-center mt-4">
         <p className="text-sm text-gray-500 mb-1">Recommended plan</p>
         <p className="text-2xl font-extrabold gradient-text">{recommended.plan}</p>
-        <p className="text-lg text-gray-300 mt-1">{recommended.price}</p>
       </div>
     </motion.div>
   );
@@ -71,11 +136,11 @@ export default function Pricing() {
       period: 'forever',
       description: 'Build and test. No credit card. No time limit.',
       features: [
-        '1,000 characters/day — enough to prototype',
-        'Access to all 2,084 models including specialists',
-        'Community support + docs',
+        '1M characters/month',
+        'All 3,100+ specialist models included',
+        'Community support + full docs',
         '10 requests/minute',
-        'HuggingFace model downloads',
+        'HuggingFace model downloads (free!)',
       ],
       cta: 'Start Free',
       popular: false,
@@ -88,7 +153,7 @@ export default function Pricing() {
       period: '/month',
       description: 'Ship to production. Real apps. Real users.',
       features: [
-        '1M characters/month',
+        '10M characters/month',
         'All specialist models (medical, legal, technical)',
         'Email support — 24hr response time',
         '100 requests/minute',
@@ -98,7 +163,7 @@ export default function Pricing() {
       ],
       cta: 'Start Building',
       popular: true,
-      highlight: '$0.099 per 1K chars — cheaper than Google Cloud Translation',
+      highlight: 'At $0.0099/1K chars — that\'s 50% cheaper than Google. With specialist models.',
     },
     {
       name: 'Business',
@@ -107,18 +172,18 @@ export default function Pricing() {
       period: '/month',
       description: 'Scale across teams. Custom models. SLA.',
       features: [
-        '10M characters/month',
+        '100M characters/month',
         'Dedicated model instances',
         'Priority support (4hr SLA)',
         '500 requests/minute',
-        'Custom model training on your data',
+        'Custom model training on YOUR data',
         'White-label "Powered by" branding',
         'WindyCloud storage (100GB)',
         'Team management + SSO',
       ],
       cta: 'Contact Sales',
       popular: false,
-      highlight: '$0.049 per 1K chars at volume',
+      highlight: 'At $0.005/1K chars — 75% less than Google Cloud Translation',
     },
     {
       name: 'Enterprise',
@@ -142,23 +207,28 @@ export default function Pricing() {
     },
   ];
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
     <section id="pricing" className="relative py-24 bg-gray-950 overflow-hidden">
       <div className="section-container">
         <motion.div
+          ref={ref}
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
             Start Free. <span className="gradient-text">Scale Forever.</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            No hidden fees. No per-language surcharges. Every plan includes all 2,084 specialist models.
+            No hidden fees. No per-language surcharges. Every plan includes all 3,100+ specialist models.
           </p>
         </motion.div>
+
+        <CompetitorAnchoring />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {plans.map((plan, index) => (
@@ -191,7 +261,7 @@ export default function Pricing() {
                   {plan.period && <span className="text-gray-500 ml-2 text-sm">{plan.period}</span>}
                 </div>
                 {plan.highlight && (
-                  <p className="text-xs text-blue-400/80 mt-2">{plan.highlight}</p>
+                  <p className="text-xs text-green-400/80 mt-2 font-semibold">{plan.highlight}</p>
                 )}
               </div>
 
@@ -228,10 +298,10 @@ export default function Pricing() {
           className="mt-8 text-center"
         >
           <p className="text-gray-600 text-sm">
-            All plans include access to all 2,084 specialist models.{' '}
-            <a href="#api" className="text-blue-400 hover:underline">
-              Compare plans in detail
-            </a>
+            All plans include all 3,100+ specialist models. Open source models available on HuggingFace for free.
+          </p>
+          <p className="text-gray-700 text-xs mt-2">
+            🔓 No lock-in. Download any model, run it yourself. The API is the convenience play, not the cage.
           </p>
         </motion.div>
       </div>
