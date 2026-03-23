@@ -36,7 +36,7 @@ export default function ModelCatalog() {
             The <span className="gradient-text">Model Armory</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            3,100+ specialist models. Each one trained on domain-specific data. Each one benchmarked against 
+            3,500+ specialist models. Each one trained on domain-specific data. Each one benchmarked against 
             generic alternatives.{' '}
             <span className="text-white font-semibold">Choose your weapon.</span>
           </p>
@@ -245,7 +245,7 @@ export default function ModelCatalog() {
           className="mt-12 text-center"
         >
           <p className="text-gray-500 mb-4">
-            Showing {filteredModels.length} of 3,100+ specialist models.{' '}
+            Showing {filteredModels.length} of 3,500+ specialist models.{' '}
             <span className="text-gray-400">Full catalog available via API.</span>
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">

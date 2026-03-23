@@ -144,7 +144,7 @@ curl https://api.windytranslate.com/v1/detect \\
     { method: 'POST', path: '/v1/translate', description: 'Translate text with optional domain specialist' },
     { method: 'POST', path: '/v1/translate/batch', description: 'Batch translate up to 100 texts in one call' },
     { method: 'POST', path: '/v1/detect', description: 'Detect language with confidence score' },
-    { method: 'GET', path: '/v1/models', description: 'List all 2,084 specialist models with metadata' },
+    { method: 'GET', path: '/v1/models', description: 'List all 3,500+ specialist models with metadata' },
     { method: 'GET', path: '/v1/models/:id', description: 'Get benchmarks, accuracy, and details for a model' },
     { method: 'GET', path: '/v1/usage', description: 'Your current usage, quota, and billing' },
   ];

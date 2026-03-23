@@ -90,7 +90,7 @@ export default function Hero() {
       generic: 'El paciente presentó con infarto agudo de miocardio',
       specialist: 'El paciente se presentó con infarto agudo de miocardio con elevación del segmento ST',
       model: 'Medical EN→ES',
-      genericLabel: 'Generic API',
+      genericLabel: 'General-Purpose API',
       issue: '❌ Missing critical clinical context',
       win: '✓ Clinically precise — includes ST-elevation detail',
     },
@@ -99,7 +99,7 @@ export default function Hero() {
       generic: '力不可抗拒条款将取代所有先前义务',
       specialist: '不可抗力条款应优先于所有先前约定的义务',
       model: 'Legal EN→ZH',
-      genericLabel: 'Generic API',
+      genericLabel: 'General-Purpose API',
       issue: '❌ Informal, legally imprecise phrasing',
       win: '✓ Proper legal terminology — court-admissible',
     },
@@ -108,7 +108,7 @@ export default function Hero() {
       generic: '再帰関数がスタックフレームの割り当てを超えています',
       specialist: '再帰関数がスタックフレームの割り当て上限を超過しました',
       model: 'Technical EN→JA',
-      genericLabel: 'Generic API',
+      genericLabel: 'General-Purpose API',
       issue: '❌ Acceptable but imprecise for engineers',
       win: '✓ Exact technical terminology — engineer-approved',
     },
@@ -149,7 +149,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-[0.95]"
           >
-            2,000 Specialist Translators.
+            3,500+ Specialist Translators.
             <br />
             <span className="gradient-text">Not One Generic Model.</span>
           </motion.h1>
@@ -163,7 +163,7 @@ export default function Hero() {
           >
             Purpose-built models for every language pair on Earth. Medical. Legal. Technical. 
             Each one trained on millions of domain-specific documents.{' '}
-            <span className="text-white font-semibold">Google Translate uses one model for everything. We use 2,000.</span>
+            <span className="text-white font-semibold">General-purpose translators use one model for everything. We use 3,500+.</span>
           </motion.p>
 
           {/* Live Translation Comparison Demo */}
@@ -264,7 +264,7 @@ export default function Hero() {
             className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
           >
             {[
-              { value: '2,084', label: 'Specialist Models', sub: 'Not generic. Purpose-built.' },
+              { value: '3,500+', label: 'Specialist Models', sub: 'Not generic. Purpose-built.' },
               { value: '127', label: 'Languages', sub: 'Every major pair covered.' },
               { value: '96.3%', label: 'Domain Accuracy', sub: 'vs 74% generic models.' },
               { value: '<50ms', label: 'Avg Latency', sub: 'Edge-cached worldwide.' },

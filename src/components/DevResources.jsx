@@ -42,7 +42,7 @@ export default function DevResources() {
     {
       icon: FaDiscord,
       title: 'Developer Community',
-      description: 'Join 2,000+ developers building with WindyTranslate. Get help, share integrations, request features.',
+      description: 'Join 3,500+ developers building with WindyTranslate. Get help, share integrations, request features.',
       link: '#',
       linkText: 'Join Discord',
     },

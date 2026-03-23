@@ -6,8 +6,8 @@ export default function TheEngine() {
     {
       icon: HiLightningBolt,
       title: 'Pair Specialists, Not Generalists',
-      description: 'Google uses one model for 100+ languages. We train a dedicated model for each pair — EN↔ES, EN↔ZH, ZH↔JA — each one obsessively optimized for its specific language combination. The accuracy difference is 20-30%.',
-      stat: '2,084 models',
+      description: 'General-purpose translators use one model for 100+ languages. We train a dedicated model for each pair — EN↔ES, EN↔ZH, ZH↔JA — each one obsessively optimized for its specific language combination. The accuracy difference is 20-30%.',
+      stat: '3,500+ models',
     },
     {
       icon: HiShieldCheck,
@@ -133,7 +133,7 @@ export default function TheEngine() {
                 </div>
                 <div className="text-yellow-300/80 pl-4">
                   └─ <span className="text-yellow-300 font-bold">WindyTranslate.com</span>
-                  <span className="text-gray-500"> 2,084 LLMs</span>
+                  <span className="text-gray-500"> 3,500+ LLMs</span>
                 </div>
               </div>
             </div>

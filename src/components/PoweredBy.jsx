@@ -124,7 +124,7 @@ export default function PoweredBy() {
               It Can Power You.
             </h3>
             <p className="text-lg text-gray-400 mb-8">
-              The same 2,084 specialist models. The same sub-50ms latency. The same domain accuracy.
+              The same 3,500+ specialist models. The same sub-50ms latency. The same domain accuracy.
               Plug in via API, SDK, or white-label deployment.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">

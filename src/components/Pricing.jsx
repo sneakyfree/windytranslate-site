@@ -4,10 +4,10 @@ import { HiCheck, HiSparkles, HiBriefcase, HiOfficeBuilding, HiArrowRight } from
 
 function CompetitorAnchoring() {
   const competitors = [
-    { name: 'Google Cloud Translation', price: '$20/M chars', models: '1 generic model', quality: 'Good for chat. Bad for medical, legal, technical.', color: 'text-gray-400' },
-    { name: 'DeepL API', price: '$25/M chars', models: '1 model, ~30 languages', quality: 'Great quality, limited languages. No specialist models.', color: 'text-gray-400' },
-    { name: 'Amazon Translate', price: '$15/M chars', models: '1 generic model', quality: 'Cheap but generic. No domain specialization.', color: 'text-gray-400' },
-    { name: 'WindyTranslate', price: 'From $0', models: '3,100+ specialist models', quality: 'Pair-trained specialists. Medical ES↔EN ≠ Legal ES↔EN. We have both.', color: 'text-blue-400' },
+    { name: 'Major Cloud Translation APIs', price: '$15–25/M chars', models: '1 generic model', quality: 'Good for chat. Bad for medical, legal, technical.', color: 'text-gray-400' },
+    { name: 'Premium Translation APIs', price: '$20–30/M chars', models: '1 model, limited languages', quality: 'Decent quality, limited languages. No specialist models.', color: 'text-gray-400' },
+    { name: 'Budget Translation APIs', price: '$10–15/M chars', models: '1 generic model', quality: 'Cheap but generic. No domain specialization.', color: 'text-gray-400' },
+    { name: 'WindyTranslate', price: 'From $0', models: '3,500+ specialist models', quality: 'Pair-trained specialists. Medical ES↔EN ≠ Legal ES↔EN. We have both.', color: 'text-blue-400' },
   ];
 
   return (
@@ -37,7 +37,7 @@ function CompetitorAnchoring() {
         ))}
       </div>
       <p className="text-center mt-4 text-xs text-gray-500">
-        Other APIs: 1 generic model tries to translate everything. WindyTranslate: <span className="text-blue-400 font-bold">3,100+ specialists</span>, each trained on specific language pairs and domains.
+        Other APIs: 1 generic model tries to translate everything. WindyTranslate: <span className="text-blue-400 font-bold">3,500+ specialists</span>, each trained on specific language pairs and domains.
         <br />
         <span className="text-gray-600">It's the difference between a GP and a brain surgeon.</span>
       </p>
@@ -72,7 +72,7 @@ function PricingCalculator() {
       className="mt-16 max-w-2xl mx-auto bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-8"
     >
       <h3 className="text-2xl font-bold text-center mb-2">How Much Will You Save?</h3>
-      <p className="text-gray-400 text-center text-sm mb-6">Drag the slider. See what Google would charge you — then see our price.</p>
+      <p className="text-gray-400 text-center text-sm mb-6">Drag the slider. See what general-purpose APIs would charge you — then see our price.</p>
 
       <div className="mb-6">
         <div className="flex items-center justify-between mb-2">
@@ -101,14 +101,14 @@ function PricingCalculator() {
 
       <div className="grid grid-cols-2 gap-4 mb-4">
         <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 text-center">
-          <p className="text-xs text-gray-500 mb-1">Google Cloud Translation</p>
+          <p className="text-xs text-gray-500 mb-1">General-Purpose APIs</p>
           <p className="text-2xl font-bold text-red-400/80 line-through">${googleCost.toFixed(0)}/mo</p>
           <p className="text-[10px] text-gray-600">1 generic model</p>
         </div>
         <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 text-center">
           <p className="text-xs text-gray-500 mb-1">WindyTranslate</p>
           <p className="text-2xl font-extrabold gradient-text">{recommended.price}</p>
-          <p className="text-[10px] text-blue-400">3,100+ specialist models</p>
+          <p className="text-[10px] text-blue-400">3,500+ specialist models</p>
         </div>
       </div>
 
@@ -137,7 +137,7 @@ export default function Pricing() {
       description: 'Build and test. No credit card. No time limit.',
       features: [
         '1M characters/month',
-        'All 3,100+ specialist models included',
+        'All 3,500+ specialist models included',
         'Community support + full docs',
         '10 requests/minute',
         'HuggingFace model downloads (free!)',
@@ -163,7 +163,7 @@ export default function Pricing() {
       ],
       cta: 'Start Building',
       popular: true,
-      highlight: 'At $0.0099/1K chars — that\'s 50% cheaper than Google. With specialist models.',
+      highlight: 'At $0.099/1K chars overage — with specialist models included.',
     },
     {
       name: 'Business',
@@ -175,7 +175,7 @@ export default function Pricing() {
         '100M characters/month',
         'Dedicated model instances',
         'Priority support (4hr SLA)',
-        '500 requests/minute',
+        '1,000 requests/minute',
         'Custom model training on YOUR data',
         'White-label "Powered by" branding',
         'WindyCloud storage (100GB)',
@@ -183,7 +183,7 @@ export default function Pricing() {
       ],
       cta: 'Contact Sales',
       popular: false,
-      highlight: 'At $0.005/1K chars — 75% less than Google Cloud Translation',
+      highlight: 'At $0.049/1K chars overage — with dedicated model instances.',
     },
     {
       name: 'Enterprise',
@@ -224,7 +224,7 @@ export default function Pricing() {
             Start Free. <span className="gradient-text">Scale Forever.</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            No hidden fees. No per-language surcharges. Every plan includes all 3,100+ specialist models.
+            No hidden fees. No per-language surcharges. Every plan includes all 3,500+ specialist models.
           </p>
         </motion.div>
 
@@ -298,7 +298,7 @@ export default function Pricing() {
           className="mt-8 text-center"
         >
           <p className="text-gray-600 text-sm">
-            All plans include all 3,100+ specialist models. Open source models available on HuggingFace for free.
+            All plans include all 3,500+ specialist models. Open source models available on HuggingFace for free.
           </p>
           <p className="text-gray-700 text-xs mt-2">
             🔓 No lock-in. Download any model, run it yourself. The API is the convenience play, not the cage.
