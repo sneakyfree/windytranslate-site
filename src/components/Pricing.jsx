@@ -140,7 +140,7 @@ export default function Pricing() {
         'All 3,500+ specialist models included',
         'Community support + full docs',
         '10 requests/minute',
-        'HuggingFace model downloads (free!)',
+        'Community support forum',
       ],
       cta: 'Start Free',
       popular: false,
@@ -298,7 +298,7 @@ export default function Pricing() {
           className="mt-8 text-center"
         >
           <p className="text-gray-600 text-sm">
-            All plans include all 3,500+ specialist models. Open source models available on HuggingFace for free.
+            All plans include access to all 3,500+ specialist models via API.
           </p>
           <p className="text-gray-700 text-xs mt-2">
             🔓 No lock-in. Download any model, run it yourself. The API is the convenience play, not the cage.

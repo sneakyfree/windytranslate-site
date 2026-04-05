@@ -2,6 +2,50 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { HiArrowRight, HiCode, HiKey, HiLightningBolt } from 'react-icons/hi';
 
+const ROTATING_TAGLINES = [
+  'Not One Generic Model.',
+  'Every Language Pair Gets Its Own Expert.',
+  'Where Generic Models Are Second-Class Citizens.',
+  '3,500+ Specialists. Generic Is the Backup Plan.',
+];
+
+function RotatingHeadline() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % ROTATING_TAGLINES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <motion.h1
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.1 }}
+      className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-[0.95]"
+    >
+      3,500+ Specialist Translators.
+      <br />
+      <span className="relative inline-block" style={{ minHeight: '1.2em' }}>
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="gradient-text"
+          >
+            {ROTATING_TAGLINES[index]}
+          </motion.span>
+        </AnimatePresence>
+      </span>
+    </motion.h1>
+  );
+}
+
 function MatrixRain() {
   const canvasRef = useRef(null);
 
@@ -142,17 +186,8 @@ export default function Hero() {
             <span>The engine behind WindyWord · WindyChat · WindyTraveler · WindyClone</span>
           </motion.div>
 
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-[0.95]"
-          >
-            3,500+ Specialist Translators.
-            <br />
-            <span className="gradient-text">Not One Generic Model.</span>
-          </motion.h1>
+          {/* Headline with rotating tagline */}
+          <RotatingHeadline />
 
           {/* Subheadline */}
           <motion.p

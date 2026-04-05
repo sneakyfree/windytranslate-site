@@ -1,7 +1,41 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiSearch, HiDownload, HiChip, HiTrendingUp, HiDatabase, HiShieldCheck } from 'react-icons/hi';
-import { models, modelCategories } from '../data/models';
+import { HiSearch, HiChip, HiTrendingUp, HiDatabase, HiShieldCheck } from 'react-icons/hi';
+import { models, modelCategories, langNames } from '../data/models';
+
+function StarRating({ rating }) {
+  const stars = [];
+  for (let i = 1; i <= 5; i++) {
+    if (rating >= i) {
+      stars.push(<span key={i} className="text-yellow-400">★</span>);
+    } else if (rating >= i - 0.5) {
+      // Half star: use a layered approach
+      stars.push(
+        <span key={i} className="relative inline-block" style={{ width: '1em' }}>
+          <span className="text-gray-700">★</span>
+          <span className="absolute left-0 top-0 overflow-hidden text-yellow-400" style={{ width: '50%' }}>★</span>
+        </span>
+      );
+    } else {
+      stars.push(<span key={i} className="text-gray-700">★</span>);
+    }
+  }
+  return (
+    <span className="inline-flex items-center text-sm tracking-tight">
+      {stars}
+      <span className="ml-1.5 text-xs text-gray-400 font-semibold">{rating.toFixed(1)}</span>
+    </span>
+  );
+}
+
+function expandPair(pair) {
+  // "en→zh" → "English → Chinese"
+  const parts = pair.split('→');
+  if (parts.length !== 2) return pair;
+  const from = langNames[parts[0].trim()] || parts[0];
+  const to = langNames[parts[1].trim()] || parts[1];
+  return `${from} → ${to}`;
+}
 
 export default function ModelCatalog() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -122,7 +156,7 @@ export default function ModelCatalog() {
               className="card group hover:border-blue-500/40 cursor-pointer"
               onClick={() => setExpandedModel(expandedModel === model.id ? null : model.id)}
             >
-              <div className="flex items-start justify-between mb-3">
+              <div className="flex items-start justify-between mb-2">
                 <div className="flex-1">
                   <div className="flex items-center space-x-2 mb-1">
                     <h3 className="text-base font-bold group-hover:text-blue-400 transition-colors">
@@ -131,24 +165,39 @@ export default function ModelCatalog() {
                   </div>
                   <code className="text-xs text-gray-600 font-mono">{model.id}</code>
                 </div>
-                <HiChip className="text-purple-500/50 group-hover:text-purple-400 transition-colors" size={20} />
+                <div className="flex flex-col items-end gap-1">
+                  <span className="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[10px] rounded-md border border-blue-500/20 font-bold">VIA API</span>
+                  <HiChip className="text-purple-500/50 group-hover:text-purple-400 transition-colors" size={16} />
+                </div>
               </div>
 
+              {/* Star Rating */}
+              {model.rating && (
+                <div className="mb-2">
+                  <StarRating rating={model.rating} />
+                </div>
+              )}
+
               {/* Language pairs */}
-              <div className="flex flex-wrap gap-1.5 mb-3">
-                {model.pairs.map((pair) => (
-                  <span
-                    key={pair}
-                    className="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded-md border border-blue-500/20 font-mono"
-                  >
-                    {pair}
-                  </span>
-                ))}
-                {model.domain && (
-                  <span className="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-xs rounded-md border border-yellow-500/20">
-                    {model.domain}
-                  </span>
-                )}
+              <div className="mb-3">
+                <div className="flex flex-wrap gap-1.5 mb-1">
+                  {model.pairs.map((pair) => (
+                    <span
+                      key={pair}
+                      className="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded-md border border-blue-500/20 font-mono"
+                    >
+                      {pair}
+                    </span>
+                  ))}
+                  {model.domain && (
+                    <span className="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-xs rounded-md border border-yellow-500/20">
+                      {model.domain}
+                    </span>
+                  )}
+                </div>
+                <div className="text-[11px] text-gray-500">
+                  {model.pairs.map(expandPair).join(' · ')}
+                </div>
               </div>
 
               {/* Key metrics */}
@@ -219,12 +268,12 @@ export default function ModelCatalog() {
                     <span>Use via API</span>
                     <span className="ml-1 px-1.5 py-0.5 bg-white/20 rounded text-[10px]">Easy</span>
                   </a>
-                  <a href={`https://huggingface.co/WindyTranslate/${model.id}`} target="_blank" rel="noopener noreferrer" className="px-3 py-2.5 border border-gray-700 hover:bg-gray-800 rounded-lg text-xs font-medium transition-colors flex items-center space-x-1.5">
-                    <HiDownload size={14} />
-                    <span>HuggingFace</span>
+                  <a href="#pricing" className="px-3 py-2.5 border border-gray-700 hover:bg-gray-800 rounded-lg text-xs font-medium transition-colors flex items-center space-x-1.5">
+                    <HiShieldCheck size={14} />
+                    <span>See Plans</span>
                   </a>
                 </div>
-                <p className="text-[10px] text-gray-600 text-center">One API call, or download &amp; self-host. Your choice.</p>
+                <p className="text-[10px] text-gray-600 text-center">One API call. 3,500+ specialist models at your fingertips.</p>
               </div>
             </motion.div>
           ))}
@@ -253,9 +302,9 @@ export default function ModelCatalog() {
               <HiDatabase size={18} />
               <span>Get API Access — One Endpoint, All Models</span>
             </a>
-            <a href="https://huggingface.co/WindyTranslate" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 px-6 py-3 border border-gray-700 hover:bg-gray-800 rounded-xl font-semibold transition-colors">
-              <HiDownload size={18} />
-              <span>Browse on HuggingFace</span>
+            <a href="#pricing" className="inline-flex items-center space-x-2 px-6 py-3 border border-gray-700 hover:bg-gray-800 rounded-xl font-semibold transition-colors">
+              <HiTrendingUp size={18} />
+              <span>Compare Plans</span>
             </a>
           </div>
         </motion.div>
