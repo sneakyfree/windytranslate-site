@@ -5,11 +5,16 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const windyBrands = [
-    { name: 'WindyWord.ai', url: 'https://windyword.ai' },
-    { name: 'WindyChat.ai', url: '#' },
-    { name: 'WindyTraveler.com', url: 'https://windytraveler.com' },
-    { name: 'WindyClone.ai', url: '#' },
-    { name: 'WindyCloud.com', url: 'https://windycloud.com' },
+    { name: 'Windy Word', url: 'https://windyword.ai' },
+    { name: 'Windy Chat', url: 'https://windychat.ai' },
+    { name: 'Windy Mail', url: 'https://windymail.ai' },
+    { name: 'Windy Code', url: 'https://windycode.org' },
+    { name: 'Windy Mind', url: 'https://windymind.ai' },
+    { name: 'Windy Clone', url: 'https://windyclone.ai' },
+    { name: 'Windy Fly', url: 'https://windyfly.ai' },
+    { name: 'Windy Traveler', url: 'https://windytraveler.com' },
+    { name: 'Windy Cloud', url: 'https://windycloud.com' },
+    { name: 'Eternitas', url: 'https://eternitas.ai' },
   ];
 
   const developers = [
