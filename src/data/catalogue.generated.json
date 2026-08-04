@@ -24,6 +24,489 @@
     "limited": "15-30",
     "notRecommended": "<15"
   },
+  "languageVerified": {
+    "count": 53,
+    "method": "GlotLID language identification on model output — confirms the model writes the language it claims. Not a quality score.",
+    "models": [
+      {
+        "id": "translate-en-sq",
+        "repo": "WindyTranslate/translate-en-sq",
+        "src": "en",
+        "tgt": "sq",
+        "srcName": "English",
+        "tgtName": "Albanian",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-ar",
+        "repo": "WindyTranslate/translate-en-ar",
+        "src": "en",
+        "tgt": "ar",
+        "srcName": "English",
+        "tgtName": "Arabic",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-tc-big-en-ar",
+        "repo": "WindyTranslate/translate-tc-big-en-ar",
+        "src": "en",
+        "tgt": "ar",
+        "srcName": "English",
+        "tgtName": "Arabic",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-az",
+        "repo": "WindyTranslate/translate-en-az",
+        "src": "en",
+        "tgt": "az",
+        "srcName": "English",
+        "tgtName": "Azerbaijani",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-bcl",
+        "repo": "WindyTranslate/translate-en-bcl",
+        "src": "en",
+        "tgt": "bcl",
+        "srcName": "English",
+        "tgtName": "bcl",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-bi",
+        "repo": "WindyTranslate/translate-en-bi",
+        "src": "en",
+        "tgt": "bi",
+        "srcName": "English",
+        "tgtName": "bi",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-bzs",
+        "repo": "WindyTranslate/translate-en-bzs",
+        "src": "en",
+        "tgt": "bzs",
+        "srcName": "English",
+        "tgtName": "bzs",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-chk",
+        "repo": "WindyTranslate/translate-en-chk",
+        "src": "en",
+        "tgt": "chk",
+        "srcName": "English",
+        "tgtName": "chk",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-crs",
+        "repo": "WindyTranslate/translate-en-crs",
+        "src": "en",
+        "tgt": "crs",
+        "srcName": "English",
+        "tgtName": "crs",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-efi",
+        "repo": "WindyTranslate/translate-en-efi",
+        "src": "en",
+        "tgt": "efi",
+        "srcName": "English",
+        "tgtName": "efi",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-tl",
+        "repo": "WindyTranslate/translate-en-tl",
+        "src": "en",
+        "tgt": "tl",
+        "srcName": "English",
+        "tgtName": "Filipino",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-gaa",
+        "repo": "WindyTranslate/translate-en-gaa",
+        "src": "en",
+        "tgt": "gaa",
+        "srcName": "English",
+        "tgtName": "gaa",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-gil",
+        "repo": "WindyTranslate/translate-en-gil",
+        "src": "en",
+        "tgt": "gil",
+        "srcName": "English",
+        "tgtName": "gil",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-gmq",
+        "repo": "WindyTranslate/translate-en-gmq",
+        "src": "en",
+        "tgt": "gmq",
+        "srcName": "English",
+        "tgtName": "gmq",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-tc-big-en-gmq",
+        "repo": "WindyTranslate/translate-tc-big-en-gmq",
+        "src": "en",
+        "tgt": "gmq",
+        "srcName": "English",
+        "tgtName": "gmq",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-gmw",
+        "repo": "WindyTranslate/translate-en-gmw",
+        "src": "en",
+        "tgt": "gmw",
+        "srcName": "English",
+        "tgtName": "gmw",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-grk",
+        "repo": "WindyTranslate/translate-en-grk",
+        "src": "en",
+        "tgt": "grk",
+        "srcName": "English",
+        "tgtName": "grk",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-guw",
+        "repo": "WindyTranslate/translate-en-guw",
+        "src": "en",
+        "tgt": "guw",
+        "srcName": "English",
+        "tgtName": "guw",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-gv",
+        "repo": "WindyTranslate/translate-en-gv",
+        "src": "en",
+        "tgt": "gv",
+        "srcName": "English",
+        "tgtName": "gv",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-hil",
+        "repo": "WindyTranslate/translate-en-hil",
+        "src": "en",
+        "tgt": "hil",
+        "srcName": "English",
+        "tgtName": "hil",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-ho",
+        "repo": "WindyTranslate/translate-en-ho",
+        "src": "en",
+        "tgt": "ho",
+        "srcName": "English",
+        "tgtName": "ho",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-iso",
+        "repo": "WindyTranslate/translate-en-iso",
+        "src": "en",
+        "tgt": "iso",
+        "srcName": "English",
+        "tgtName": "iso",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-kqn",
+        "repo": "WindyTranslate/translate-en-kqn",
+        "src": "en",
+        "tgt": "kqn",
+        "srcName": "English",
+        "tgtName": "kqn",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-kj",
+        "repo": "WindyTranslate/translate-en-kj",
+        "src": "en",
+        "tgt": "kj",
+        "srcName": "English",
+        "tgtName": "Kuanyama",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-kwn",
+        "repo": "WindyTranslate/translate-en-kwn",
+        "src": "en",
+        "tgt": "kwn",
+        "srcName": "English",
+        "tgtName": "kwn",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-kwy",
+        "repo": "WindyTranslate/translate-en-kwy",
+        "src": "en",
+        "tgt": "kwy",
+        "srcName": "English",
+        "tgtName": "kwy",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-tc-big-en-lv",
+        "repo": "WindyTranslate/translate-tc-big-en-lv",
+        "src": "en",
+        "tgt": "lv",
+        "srcName": "English",
+        "tgtName": "Latvian",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-loz",
+        "repo": "WindyTranslate/translate-en-loz",
+        "src": "en",
+        "tgt": "loz",
+        "srcName": "English",
+        "tgtName": "loz",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-lu",
+        "repo": "WindyTranslate/translate-en-lu",
+        "src": "en",
+        "tgt": "lu",
+        "srcName": "English",
+        "tgtName": "lu",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-lue",
+        "repo": "WindyTranslate/translate-en-lue",
+        "src": "en",
+        "tgt": "lue",
+        "srcName": "English",
+        "tgtName": "lue",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-lun",
+        "repo": "WindyTranslate/translate-en-lun",
+        "src": "en",
+        "tgt": "lun",
+        "srcName": "English",
+        "tgtName": "lun",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-mg",
+        "repo": "WindyTranslate/translate-en-mg",
+        "src": "en",
+        "tgt": "mg",
+        "srcName": "English",
+        "tgtName": "Malagasy",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-mh",
+        "repo": "WindyTranslate/translate-en-mh",
+        "src": "en",
+        "tgt": "mh",
+        "srcName": "English",
+        "tgtName": "Marshallese",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-mfe",
+        "repo": "WindyTranslate/translate-en-mfe",
+        "src": "en",
+        "tgt": "mfe",
+        "srcName": "English",
+        "tgtName": "mfe",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-ng",
+        "repo": "WindyTranslate/translate-en-ng",
+        "src": "en",
+        "tgt": "ng",
+        "srcName": "English",
+        "tgtName": "ng",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-niu",
+        "repo": "WindyTranslate/translate-en-niu",
+        "src": "en",
+        "tgt": "niu",
+        "srcName": "English",
+        "tgtName": "niu",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-nyk",
+        "repo": "WindyTranslate/translate-en-nyk",
+        "src": "en",
+        "tgt": "nyk",
+        "srcName": "English",
+        "tgtName": "nyk",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-om",
+        "repo": "WindyTranslate/translate-en-om",
+        "src": "en",
+        "tgt": "om",
+        "srcName": "English",
+        "tgtName": "om",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-pis",
+        "repo": "WindyTranslate/translate-en-pis",
+        "src": "en",
+        "tgt": "pis",
+        "srcName": "English",
+        "tgtName": "pis",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-pon",
+        "repo": "WindyTranslate/translate-en-pon",
+        "src": "en",
+        "tgt": "pon",
+        "srcName": "English",
+        "tgtName": "pon",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-pqe",
+        "repo": "WindyTranslate/translate-en-pqe",
+        "src": "en",
+        "tgt": "pqe",
+        "srcName": "English",
+        "tgtName": "pqe",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-pqw",
+        "repo": "WindyTranslate/translate-en-pqw",
+        "src": "en",
+        "tgt": "pqw",
+        "srcName": "English",
+        "tgtName": "pqw",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-rnd",
+        "repo": "WindyTranslate/translate-en-rnd",
+        "src": "en",
+        "tgt": "rnd",
+        "srcName": "English",
+        "tgtName": "rnd",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-sal",
+        "repo": "WindyTranslate/translate-en-sal",
+        "src": "en",
+        "tgt": "sal",
+        "srcName": "English",
+        "tgtName": "sal",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-sw",
+        "repo": "WindyTranslate/translate-en-sw",
+        "src": "en",
+        "tgt": "sw",
+        "srcName": "English",
+        "tgtName": "Swahili",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-swc",
+        "repo": "WindyTranslate/translate-en-swc",
+        "src": "en",
+        "tgt": "swc",
+        "srcName": "English",
+        "tgtName": "swc",
+        "verdict": "SCRIPT-OK"
+      },
+      {
+        "id": "translate-en-tdt",
+        "repo": "WindyTranslate/translate-en-tdt",
+        "src": "en",
+        "tgt": "tdt",
+        "srcName": "English",
+        "tgtName": "tdt",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-tiv",
+        "repo": "WindyTranslate/translate-en-tiv",
+        "src": "en",
+        "tgt": "tiv",
+        "srcName": "English",
+        "tgtName": "tiv",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-tll",
+        "repo": "WindyTranslate/translate-en-tll",
+        "src": "en",
+        "tgt": "tll",
+        "srcName": "English",
+        "tgtName": "tll",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-to",
+        "repo": "WindyTranslate/translate-en-to",
+        "src": "en",
+        "tgt": "to",
+        "srcName": "English",
+        "tgtName": "to",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-toi",
+        "repo": "WindyTranslate/translate-en-toi",
+        "src": "en",
+        "tgt": "toi",
+        "srcName": "English",
+        "tgtName": "toi",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-tvl",
+        "repo": "WindyTranslate/translate-en-tvl",
+        "src": "en",
+        "tgt": "tvl",
+        "srcName": "English",
+        "tgtName": "tvl",
+        "verdict": "MATCH"
+      },
+      {
+        "id": "translate-en-ty",
+        "repo": "WindyTranslate/translate-en-ty",
+        "src": "en",
+        "tgt": "ty",
+        "srcName": "English",
+        "tgtName": "ty",
+        "verdict": "MATCH"
+      }
+    ]
+  },
   "models": [
     {
       "id": "translate-tc-big-en-fr",

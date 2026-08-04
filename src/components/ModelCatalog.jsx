@@ -19,7 +19,7 @@ import catalogue from '../data/catalogue.generated.json';
  * flattering invented one.
  */
 
-const { models, totals, bands, _method } = catalogue;
+const { models, totals, bands, _method, languageVerified } = catalogue;
 
 const BAND_STYLE = {
   Excellent: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
@@ -93,12 +93,42 @@ export default function ModelCatalog() {
           ))}
         </div>
 
-        <p className="text-center text-xs text-gray-500 mb-10 max-w-3xl mx-auto">
+        <p className="text-center text-xs text-gray-500 mb-4 max-w-3xl mx-auto">
           {totals.scored} pairs scored · median chrF++ {totals.medianChrf} ·{' '}
           <strong className="text-gray-400">{totals.notScored} more</strong> are in languages
           FLORES-200 does not cover, so they are reported as unmeasured rather than given a
           score they did not earn.
         </p>
+
+        {/* A different KIND of evidence, kept deliberately separate from the
+            chrF++ bands: this confirms the model writes the language it claims,
+            which is the failure a similarity score cannot see. It says nothing
+            about how WELL it writes it. */}
+        {languageVerified?.count > 0 && (
+          <div className="max-w-3xl mx-auto mb-10 p-4 rounded-xl bg-gray-900/40 border border-gray-800">
+            <p className="text-xs text-gray-400 leading-relaxed text-center">
+              Of the unmeasured pairs,{' '}
+              <strong className="text-white">{languageVerified.count}</strong> have been
+              independently <strong className="text-white">language-verified</strong>: an
+              external classifier confirms the model writes the language it claims. That is a
+              different check from the scores above — it catches a model quietly answering in
+              the wrong language, which a similarity score cannot — and it is not a measure of
+              quality.
+            </p>
+            <div className="flex flex-wrap justify-center gap-1.5 mt-3">
+              {languageVerified.models.slice(0, 28).map((m) => (
+                <span key={m.id} className="px-2 py-0.5 rounded-md bg-gray-800/70 text-[10px] text-gray-400">
+                  {m.tgtName}
+                </span>
+              ))}
+              {languageVerified.models.length > 28 && (
+                <span className="px-2 py-0.5 text-[10px] text-gray-600">
+                  +{languageVerified.models.length - 28} more
+                </span>
+              )}
+            </div>
+          </div>
+        )}
 
         <div className="flex flex-col sm:flex-row gap-3 max-w-3xl mx-auto mb-8">
           <div className="relative flex-1">
