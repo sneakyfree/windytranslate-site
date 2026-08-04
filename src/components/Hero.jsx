@@ -183,7 +183,7 @@ export default function Hero() {
             className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-sm mb-8"
           >
             <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-            <span>The engine behind WindyWord · WindyChat · WindyTraveler · WindyClone</span>
+            <span>Nobody is more passionate about the great art of voice and language than Windy</span>
           </motion.div>
 
           {/* Headline with rotating tagline */}
@@ -196,9 +196,12 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-gray-400 mb-16 max-w-4xl mx-auto leading-relaxed"
           >
-            Purpose-built models for every language pair on Earth. Medical. Legal. Technical. 
-            Each one trained on millions of domain-specific documents.{' '}
-            <span className="text-white font-semibold">General-purpose translators use one model for everything. We use 3,500+.</span>
+            209 languages. 1,381 directed pairs. Marshallese, Tumbuka, Kuanyama, Tausug —
+            languages most translation APIs do not serve at all.{' '}
+            <span className="text-white font-semibold">
+              Every pair is benchmarked on FLORES-200 and published with the score it earned,
+              including the ones that scored badly.
+            </span>
           </motion.p>
 
           {/* Live Translation Comparison Demo */}

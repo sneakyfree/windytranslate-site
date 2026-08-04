@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import TranslationDemo from './components/TranslationDemo';
 import TheEngine from './components/TheEngine';
 import ModelCatalog from './components/ModelCatalog';
+import TheLab from './components/TheLab';
 import APIDocs from './components/APIDocs';
 import Pricing from './components/Pricing';
 import PoweredBy from './components/PoweredBy';
@@ -21,6 +22,7 @@ function App() {
         <TheEngine />
         <APIDocs />
         <ModelCatalog />
+        <TheLab />
         <Pricing />
         <PoweredBy />
         <WhiteLabel />
