@@ -301,7 +301,7 @@ export default function Hero() {
             {[
               { value: '3,500+', label: 'Specialist Models', sub: 'Not generic. Purpose-built.' },
               { value: '127', label: 'Languages', sub: 'Every major pair covered.' },
-              { value: '96.3%', label: 'Domain Accuracy', sub: 'vs 74% generic models.' },
+              { value: '209', label: 'Languages', sub: 'Many served by no other API.' },
               { value: '<50ms', label: 'Avg Latency', sub: 'Edge-cached worldwide.' },
             ].map((stat, i) => (
               <div key={i} className="text-center">

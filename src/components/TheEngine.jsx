@@ -6,7 +6,7 @@ export default function TheEngine() {
     {
       icon: HiLightningBolt,
       title: 'Pair Specialists, Not Generalists',
-      description: 'General-purpose translators use one model for 100+ languages. We train a dedicated model for each pair — EN↔ES, EN↔ZH, ZH↔JA — each one obsessively optimized for its specific language combination. The accuracy difference is 20-30%.',
+      description: 'General-purpose translators use one model for 100+ languages. We train a dedicated model for each pair — EN↔ES, EN↔ZH, ZH↔JA — each one obsessively optimized for its specific language combination. Every pair is benchmarked on FLORES-200 and published with its score.',
       stat: '3,500+ models',
     },
     {
@@ -37,7 +37,7 @@ export default function TheEngine() {
       icon: HiGlobe,
       title: '127 Languages, Growing',
       description: 'From Mandarin to Maori. From Arabic to Zulu. Major pairs have 98%+ accuracy. Long-tail pairs continue improving with every deployment. The catalog never stops growing.',
-      stat: '127 languages',
+      stat: '209 languages',
     },
   ];
 

@@ -21,7 +21,7 @@ export default function DevResources() {
     {
       icon: HiStatusOnline,
       title: 'API Status',
-      description: 'Real-time uptime monitoring. 99.9% SLA. Automated incident reports. Status page you can trust.',
+      description: 'Models are downloadable and run on your own hardware, so uptime is yours, not ours.',
       link: '#',
       linkText: 'Check Status',
     },

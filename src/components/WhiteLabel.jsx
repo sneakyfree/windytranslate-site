@@ -16,8 +16,8 @@ export default function WhiteLabel() {
       problem: 'A general-purpose translator renders "胸闷" as "chest tightness." Technically correct. Clinically useless. Is it pressure? Squeezing? Radiating?',
       solution: 'WindyTranslate Medical ZH↔EN translates "胸闷伴有放射性左臂疼痛" as "chest oppression with radiating left arm pain" — immediately signaling a STEMI protocol. The ER team activates the cath lab.',
       stakes: 'In healthcare, a mistranslation isn\'t a bug report. It\'s a malpractice suit. It\'s a death.',
-      stat: '96.3% accuracy on clinical terminology',
-      statSub: 'vs 74.1% generic — a 22% gap that kills',
+      stat: 'Benchmarked and published, pair by pair',
+      statSub: 'chrF++ on FLORES-200, including the weak pairs',
     },
     {
       icon: HiScale,
@@ -29,7 +29,7 @@ export default function WhiteLabel() {
       problem: 'Generic translation renders "hold harmless" as "schadlos halten." A German lawyer reads that and sends the contract back. The correct legal term is "freistellen." The deal stalls.',
       solution: 'WindyTranslate Legal EN↔DE uses "freistellen" and "Rechtsverteidigung" — terms that survive judicial review. The contract closes on schedule.',
       stakes: 'One wrong word in a contract doesn\'t just lose a deal — it creates liability. Legal translation requires zero tolerance for "close enough."',
-      stat: '97.8% accuracy on legal terminology',
+      stat: 'Every pair scored on a public benchmark',
       statSub: 'Trained on 440K court filings and contracts',
     },
     {
@@ -42,8 +42,8 @@ export default function WhiteLabel() {
       problem: 'A physics lecture translates "angular momentum" to Chinese as "角动量." Correct. But the explanation of conservation laws uses colloquial phrasing that confuses the concept. Students fail the exam — not because they don\'t understand physics, but because the translation dumbed it down.',
       solution: 'WindyTranslate Technical models preserve academic register. The Chinese translation reads like it was written by a Chinese physics professor, not run through a generic translator.',
       stakes: 'Education is the great equalizer — but only if the translation preserves the teaching, not just the words.',
-      stat: '98.1% on academic content',
-      statSub: 'Preserving register across 127 languages',
+      stat: 'Scores published per pair, not averaged away',
+      statSub: 'Preserving register across 209 languages',
     },
     {
       icon: HiPhone,
@@ -175,7 +175,7 @@ export default function WhiteLabel() {
                 'Your branding, your domain — "Powered by WindyTranslate" or completely invisible',
                 'Dedicated model instances tuned to your terminology',
                 'Custom model training on your proprietary data',
-                'SLA guarantees: 99.9% uptime, sub-50ms p95 latency',
+                'Self-hosted today: download the weights and run them yourself',
                 'Revenue share or flat licensing — your choice',
               ].map((item, i) => (
                 <li key={i} className="flex items-start space-x-3 text-sm">

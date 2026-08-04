@@ -13,8 +13,6 @@ const domains = [
         pair: 'EN → ES',
         generic: 'El paciente se presentó con infarto agudo de miocardio con elevación del segmento ST que requiere intervención coronaria percutánea urgente.',
         specialist: 'El paciente se presentó con infarto agudo de miocardio con elevación del segmento ST (IAMCEST) que requiere intervención coronaria percutánea (ICP) de emergencia.',
-        genericScore: '74.1%',
-        specialistScore: '96.3%',
         issue: 'Misses standard medical abbreviations (IAMCEST, ICP). "Urgente" vs clinically correct "de emergencia." Could cause triage delays.',
       },
       {
@@ -22,8 +20,6 @@ const domains = [
         pair: 'EN → ZH',
         generic: '给予0.4毫克舌下硝酸甘油。监测低血压。与PDE5抑制剂禁忌。',
         specialist: '舌下含服硝酸甘油0.4mg，密切监测血压变化，警惕低血压反应。本药与5型磷酸二酯酶抑制剂（如西地那非）存在配伍禁忌。',
-        genericScore: '71.8%',
-        specialistScore: '97.2%',
         issue: 'Generic omits dosage administration route detail, uses informal phrasing inappropriate for medical orders, and fails to expand PDE5 for Chinese clinical context.',
       },
     ],
@@ -38,8 +34,6 @@ const domains = [
         pair: 'EN → DE',
         generic: 'Die schadlos haltende Partei hält die schadlos gehaltene Partei schadlos und verteidigt sie gegen alle Ansprüche aus der Verletzung der hierin enthaltenen Zusicherungen und Gewährleistungen.',
         specialist: 'Die freistellende Partei stellt die freigestellte Partei von sämtlichen Ansprüchen frei, die aus einer Verletzung der in diesem Vertrag abgegebenen Zusicherungen und Gewährleistungen entstehen, und übernimmt deren Rechtsverteidigung.',
-        genericScore: '72.4%',
-        specialistScore: '97.8%',
         issue: '"Schadlos halten" is informal. German legal contracts require "freistellen" and "Rechtsverteidigung." This translation would not survive legal review.',
       },
     ],
@@ -54,8 +48,6 @@ const domains = [
         pair: 'EN → JA',
         generic: 'ガベージコレクタは、弱いマップ実装の循環参照のためにヒープメモリを回収できず、ワーカースレッドプールでメモリ不足例外が発生しました。',
         specialist: 'WeakMap実装における循環参照により、ガベージコレクタがヒープメモリの回収に失敗し、ワーカースレッドプールでOutOfMemoryExceptionが発生しました。',
-        genericScore: '76.9%',
-        specialistScore: '98.1%',
         issue: 'Translates "weak map" literally (弱いマップ) instead of keeping the standard term "WeakMap." Translates "out-of-memory exception" into Japanese instead of keeping "OutOfMemoryException." Engineers would not recognize these terms.',
       },
     ],
@@ -174,15 +166,6 @@ export default function TranslationDemo() {
                   </div>
                   <div className="mt-2">
                     <p className="text-gray-300 leading-relaxed mb-4 font-mono text-sm">{example.generic}</p>
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="flex-1 h-2 bg-gray-800 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transition-all duration-1000"
-                          style={{ width: example.genericScore }}
-                        ></div>
-                      </div>
-                      <span className="text-red-400 font-bold text-sm">{example.genericScore}</span>
-                    </div>
                     <p className="text-red-400/80 text-xs leading-relaxed">{example.issue}</p>
                   </div>
                 </motion.div>
@@ -202,17 +185,8 @@ export default function TranslationDemo() {
                   </div>
                   <div className="mt-2">
                     <p className="text-gray-100 leading-relaxed mb-4 font-mono text-sm">{example.specialist}</p>
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="flex-1 h-2 bg-gray-800 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full transition-all duration-1000"
-                          style={{ width: example.specialistScore }}
-                        ></div>
-                      </div>
-                      <span className="text-green-400 font-bold text-sm">{example.specialistScore}</span>
-                    </div>
                     <p className="text-green-400/80 text-xs leading-relaxed">
-                      ✓ Domain-accurate. Terminology verified against professional standards.
+                      ✓ Keeps the domain abbreviations a specialist reader expects.
                     </p>
                   </div>
                 </motion.div>
@@ -229,7 +203,8 @@ export default function TranslationDemo() {
               <div className="inline-flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-full">
                 <HiLightningBolt className="text-yellow-400" size={18} />
                 <span className="text-sm text-gray-300">
-                  <span className="text-white font-bold">+{(parseFloat(example.specialistScore) - parseFloat(example.genericScore)).toFixed(1)}%</span> accuracy improvement with domain specialist
+                  Side-by-side output, not a score. Per-pair benchmarks are in{' '}
+                  <a href="#models" className="text-blue-400 hover:underline">the catalogue</a>.
                 </span>
               </div>
             </motion.div>
